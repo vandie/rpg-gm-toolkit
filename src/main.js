@@ -6,7 +6,10 @@ import router from './router'
 import fontawesome from '@fortawesome/fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
 import icons from '@fortawesome/fontawesome-free-solid'
+import Buefy from 'buefy'
+
 Vue.config.productionTip = false
+Vue.use(Buefy)
 
 /* eslint-disable no-new */
 new Vue({

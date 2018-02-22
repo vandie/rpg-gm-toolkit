@@ -4,36 +4,17 @@
 
 ## Goals
 
-The Goal here is to create a tool for creating the Lore for your tabletop RPG Campaign. A useful tool for GMs, the aim is to have a system wherein many parts of creating the background information for your RPG is possible.
+The Goal here is to create a tool for creating the Lore for your tabletop RPG Campaign. A useful tool for GMs, the aim is to have a system wherein many parts of creating the background information for your RPG is possible with little difficulty.
 
-### Components we want to make
+### Components we want to make (Feel free to add to this)
 
-- [ ] A Sun and Moon System
-      - [ ] Multiple moons/suns
-      - [ ] Name each moon or sun
-      - [ ] Moon phases
-      - [ ] Eclipses
-- [ ] A Calendar System
-      - [ ] Custom Eras
-      - [ ] Arbitrary, Lunar or Solar based calendars
-      - [ ] Multiple Naming systems for days and months (based on key figures/gods/custom)
-- [ ] Key Events
-      - [ ] Wars
-      - [ ] Births and Deaths of key figures
-      - [ ] Holidays
-- [ ] Key figures (alive & dead)
-      - [ ] Describe key figures
-      - [ ] Add their birth, death and connected events to calendar
-      - [ ] Stat Block Builder for Living figures
-- [ ] Town/City builder
-      - [ ] Name towns
-      - [ ] Assign living key figures as leaders (and how they lead)
-      - [ ] What's in this town/city?
-      - [ ] Town/City Alignment
-      - [ ] Key features
-- [ ] Religion
-      - [ ] Deity Creator
-      - [ ] Import OGL Deities from D&D 5e or Pathfinder
+- [ ] NPC Generator
+      - [x] Race
+      - [x] Sex
+      - [x] Random Height & Weight
+      - [ ] Random Name
+      - [ ] Base Stats
+      - [ ] Class
 
 ## Vue.js Build Setup
 

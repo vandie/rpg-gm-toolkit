@@ -1,9 +1,4 @@
 {
-    "Overview" : "See the overview of your campaign setting",
-    "Celestials": "Manage the suns and moons of your world",
-    "Calender": "Manage the calender system of your campaign",
-    "Key Events": "Manage the significant events that have or will occur in your campaign",
-    "Key Figures": "Manage the significant individuals in your campaign",
-    "Towns & Cities": "Manage the towns and cities in your campaign",
-    "Religion": "Manage the religions and deities in your campaign"
+    "Home" : "The home of the RPG GM Toolkit",
+    "NPC Generator" : "Generate an NPC"
 }
