@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/RPG-Lore-Builder/',
     proxyTable: {},
 
     // Various Dev Server settings
