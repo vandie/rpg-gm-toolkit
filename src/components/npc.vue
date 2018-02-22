@@ -4,25 +4,21 @@
           <div class="section">
             <div class="card">
                 <div class="card-content">
-                    <b-field grouped>
-                        <b-field label="Race">
-                            <b-select placeholder="No race selected" v-model="selRace">
-                                <option v-for="(race, index) in races" v-bind:key="index" v-bind:value="index">{{race.name}}</option>
-                            </b-select>
-                        </b-field>
-                        <b-field label="Sex">
-                            <b-select placeholder="No sex selected" v-model="sex">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </b-select>
-                        </b-field>
+                    <b-field>
+                        <b-select placeholder="No race selected" v-model="selRace" expanded>
+                            <option v-for="(race, index) in races" v-bind:key="index" v-bind:value="index">{{race.name}}</option>
+                        </b-select>
+                        <b-select placeholder="No sex selected" v-model="sex" expanded>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </b-select>
                     </b-field>
                     <b-field>
                         <b-select placeholder="No class selected" v-model="selClass">
                             <option v-for="(c, index) in classes" v-bind:key="index" v-bind:value="index">{{c.name}}</option>
                             <option v-bind:value="classes.length">Random Class</option>
                         </b-select>
-                        <b-input type="Number" placeholder="Level" max="20" v-model="level"></b-input>
+                        <b-input type="Number" placeholder="Level" max="20" v-model="level" expanded></b-input>
                     </b-field>
                     <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">Regenerate</a>
                 </div>
