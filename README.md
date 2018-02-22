@@ -12,9 +12,9 @@ The Goal here is to create a tool for creating the Lore for your tabletop RPG Ca
 - [x] Race
 - [x] Sex
 - [x] Random Height & Weight
-- [ ] Random Name
+- [x] Random Name
 - [ ] Base Stats
-- [ ] Class
+- [x] Class
 
 ## Vue.js Build Setup
 
