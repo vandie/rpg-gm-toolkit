@@ -71,7 +71,7 @@ export default {
       },
       name: function(){
           if (this.currentRace.firstNames){
-              return this.currentRace.firstNames[this.sex][Math.floor(Math.random()*this.currentRace.firstNames[this.sex].length)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length)]
+              return this.currentRace.firstNames[this.sex][Math.floor(Math.random()*this.currentRace.firstNames[this.sex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
           } else return "N/A"
       }
   }
