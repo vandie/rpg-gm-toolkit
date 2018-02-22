@@ -41,7 +41,7 @@
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
                     <br>
-                    <h4> Class : {{currentClass.name}} ( {{level}} )</h4>
+                    <h4> Class : {{currentClass.name}} ( {{curLevel}} )</h4>
                 </div>
             </div>
           </div>
@@ -109,6 +109,10 @@ export default {
             let n = this.currentRace.firstNames[this.sex][Math.floor(Math.random()*this.currentRace.firstNames[this.sex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
             return this.toNameCase(n)
         } else return "N/A"
+    },
+    curLevel: function(){
+        if(this.level != null) return this.level
+        else return Math.floor(Math.random()*5)+2
     }
   }
 }
