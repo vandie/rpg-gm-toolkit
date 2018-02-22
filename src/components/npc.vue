@@ -72,6 +72,9 @@ export default {
         let c = this.selClass
         this.selClass = 0
         this.selClass = c
+        let l = this.level
+        this.level = 0
+        this.level = l
     },
     toNameCase: function(str){
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -111,7 +114,7 @@ export default {
         } else return "N/A"
     },
     curLevel: function(){
-        if(this.level != null) return this.level
+        if(this.level < 1 || this.level == null) return this.level
         else return Math.floor(Math.random()*5)+2
     }
   }
