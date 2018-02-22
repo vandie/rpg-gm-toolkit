@@ -8,6 +8,7 @@
       <div class="navbar-menu">
         <div class="navbar-end">
           <router-link v-for="route in this.$router.options.routes" v-bind:key="route.path" v-bind:to="route.path"  v-bind:class="{'navbar-item':true, 'is-active': route.name == pageName}">{{ route.name }}</router-link>
+          
         </div>
       </div>
     </nav>

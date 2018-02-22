@@ -17,7 +17,7 @@
                             </b-select>
                         </b-field>
                     </b-field>
-                    <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">regenerate</a>
+                    <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">Regenerate</a>
                 </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
                 </header>
                 <div class="card-content">
                     <h4> Race : {{currentRace.name}} </h4>
-                    <h4> Sex : {{sex}} </h4>
+                    <h4> Sex : {{toNameCase(sex)}} </h4>
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
                 </div>
@@ -53,10 +53,13 @@ export default {
       }
   },
   methods: {
-      regenerate: function(){
-          this.sex = this.sex == "male" ? "female" : "male"
-          this.sex = this.sex == "male" ? "female" : "male"
-      }
+    regenerate: function(){
+        this.sex = this.sex == "male" ? "female" : "male"
+        this.sex = this.sex == "male" ? "female" : "male"
+    },
+    toNameCase: function(str){
+        return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    }
   },
   computed:{
       currentRace: function(){
@@ -73,14 +76,15 @@ export default {
 
           return {
               heightInches: heightInches,
-              writtenHeight: feet+" ft "+remainder+'"',
+              writtenHeight: feet+" ft "+remainder+'in',
               weight: weight,
               writtenWeight: weight+" lbs"
           }
       },
       name: function(){
           if (this.currentRace.firstNames){
-              return this.currentRace.firstNames[this.sex][Math.floor(Math.random()*this.currentRace.firstNames[this.sex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
+              let n = this.currentRace.firstNames[this.sex][Math.floor(Math.random()*this.currentRace.firstNames[this.sex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
+              return this.toNameCase(n)
           } else return "N/A"
       }
   }
