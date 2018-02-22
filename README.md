@@ -8,13 +8,13 @@ The Goal here is to create a tool for creating the Lore for your tabletop RPG Ca
 
 ### Components we want to make (Feel free to add to this)
 
-- [ ] NPC Generator
-      - [x] Race
-      - [x] Sex
-      - [x] Random Height & Weight
-      - [ ] Random Name
-      - [ ] Base Stats
-      - [ ] Class
+#### [ ] NPC Generator
+- [x] Race
+- [x] Sex
+- [x] Random Height & Weight
+- [ ] Random Name
+- [ ] Base Stats
+- [ ] Class
 
 ## Vue.js Build Setup
 
