@@ -17,13 +17,12 @@
                             </b-select>
                         </b-field>
                     </b-field>
-                    <b-field grouped>
-                        <b-field label="Class">
-                            <b-select placeholder="No class selected" v-model="selClass">
-                                <option v-for="(c, index) in classes" v-bind:key="index" v-bind:value="index">{{c.name}}</option>
-                                <option v-bind:value="classes.length">Random Class</option>
-                            </b-select>
-                        </b-field>
+                    <b-field>
+                        <b-select placeholder="No class selected" v-model="selClass">
+                            <option v-for="(c, index) in classes" v-bind:key="index" v-bind:value="index">{{c.name}}</option>
+                            <option v-bind:value="classes.length">Random Class</option>
+                        </b-select>
+                        <b-input type="Number" placeholder="Level" max="20" v-model="level"></b-input>
                     </b-field>
                     <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">Regenerate</a>
                 </div>
@@ -42,7 +41,7 @@
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
                     <br>
-                    <h4> Class : {{currentClass.name}} </h4>
+                    <h4> Class : {{currentClass.name}} ( {{level}} )</h4>
                 </div>
             </div>
           </div>
@@ -62,7 +61,8 @@ export default {
           classes: classData.classes,
           selRace: 0,
           selClass: classData.classes.length,
-          sex: "male"
+          sex: "male",
+          level: null
       }
   },
   methods: {
