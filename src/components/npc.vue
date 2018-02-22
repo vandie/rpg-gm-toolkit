@@ -114,7 +114,7 @@ export default {
         } else return "N/A"
     },
     curLevel: function(){
-        if(this.level == null || this.level == "") return this.level
+        if(this.level != null && this.level != "") return this.level
         else return Math.floor(Math.random()*5)+2
     }
   }
