@@ -7,10 +7,12 @@
                     <b-field>
                         <b-select placeholder="No race selected" v-model="selRace" expanded>
                             <option v-for="(race, index) in races" v-bind:key="index" v-bind:value="index">{{race.name}}</option>
+                            <option v-bind:value="races.length">Random Race</option>
                         </b-select>
                         <b-select placeholder="No sex selected" v-model="sex" expanded>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
+                            <option value="random">Randomize Sex</option>
                         </b-select>
                     </b-field>
                     <b-field>
@@ -33,11 +35,10 @@
                 </header>
                 <div class="card-content">
                     <h4> Race : {{currentRace.name}} </h4>
-                    <h4> Sex : {{toNameCase(sex)}} </h4>
+                    <h4> Class : {{currentClass.name}} ( {{curLevel}} )</h4>
+                    <h4> Sex : {{toNameCase(fSex)}} </h4>
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
-                    <br>
-                    <h4> Class : {{currentClass.name}} ( {{curLevel}} )</h4>
                 </div>
             </div>
           </div>
@@ -63,8 +64,9 @@ export default {
   },
   methods: {
     regenerate: function(){
+        let s = this.sex
         this.sex = this.sex == "male" ? "female" : "male"
-        this.sex = this.sex == "male" ? "female" : "male"
+        this.sex = s
         let c = this.selClass
         this.selClass = 0
         this.selClass = c
@@ -78,20 +80,28 @@ export default {
   },
   computed:{
     currentRace: function(){
-        return this.races[this.selRace]
+        if (this.selRace != this.races.length){
+            return this.races[this.selRace]
+        }else{
+            return this.races[ Math.floor(Math.random()*this.races.length) ]
+        }
     },
     currentClass: function(){
         if (this.selClass != this.classes.length){
             return this.classes[this.selClass]
         }else{
-            return this.classes[ Math.floor(Math.random()*this.classes.length-1) ]
+            return this.classes[ Math.floor(Math.random()*this.classes.length) ]
         }
     },
+    fSex: function(){
+        return this.sex == "random" ? ( Math.random()*100 > 49 ? "male" : "female" ) : this.sex
+    },
     stature: function(){
-        let maxDie = this.currentRace.stature.heightWeightRoll[this.sex]
+        let sex = this.fSex
+        let maxDie = this.currentRace.stature.heightWeightRoll[sex]
         let roll = Math.floor( Math.random() * (maxDie-2) ) + 2
-        let heightInches = this.currentRace.stature.baseHeightInches[this.sex]+roll
-        let weight = this.currentRace.stature.baseWeight[this.sex]+( roll * this.currentRace.stature.weightMultiplyer[this.sex] )
+        let heightInches = this.currentRace.stature.baseHeightInches[sex]+roll
+        let weight = this.currentRace.stature.baseWeight[sex]+( roll * this.currentRace.stature.weightMultiplyer[sex] )
 
         let remainder = heightInches % 12
         let feet = (heightInches - remainder)/12
@@ -105,7 +115,7 @@ export default {
     },
     name: function(){
         if (this.currentRace.firstNames){
-            let n = this.currentRace.firstNames[this.sex][Math.floor(Math.random()*this.currentRace.firstNames[this.sex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
+            let n = this.currentRace.firstNames[this.fSex][Math.floor(Math.random()*this.currentRace.firstNames[this.fSex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
             return this.toNameCase(n)
         } else return "N/A"
     },
