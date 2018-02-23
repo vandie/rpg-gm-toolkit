@@ -68,11 +68,14 @@ export default {
         this.sex = this.sex == "male" ? "female" : "male"
         this.sex = s
         let c = this.selClass
-        this.selClass = 0
+        this.selClass = this.selClass == 0 ? 1 : 0
         this.selClass = c
         let l = this.level
-        this.level = 0
+        this.level = this.level == 0 ? 1 : 0
         this.level = l
+        let r = this.selRace
+        this.selRace = this.selRace == 0 ? 1 : 0
+        this.selRace = r
     },
     toNameCase: function(str){
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
