@@ -39,6 +39,8 @@
                     <h4> Sex : {{toNameCase(fSex)}} </h4>
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
+                    <br>
+                    <h4> Hair : {{hair}} </h4>
                 </div>
             </div>
           </div>
@@ -125,6 +127,16 @@ export default {
     curLevel: function(){
         if(this.level != null && this.level != "") return this.level
         else return Math.floor(Math.random()*5)+2
+    },
+    pronoun: function(){
+        return this.fSex == "male" ? "his": "her"
+    },
+    hair: function(){
+        let data = this.currentRace.hair
+        let color = data.colors[ Math.floor(Math.random()*data.colors.length) ]
+        let style = data.styles[ Math.floor(Math.random()*data.styles.length) ]
+        let note = data.notes[ Math.floor(Math.random()*data.notes.length) ]
+        return this.toNameCase(this.pronoun)+" "+note+" "+color+" hair is "+style+"."
     }
   }
 }

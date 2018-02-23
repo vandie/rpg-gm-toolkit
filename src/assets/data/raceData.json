@@ -2,6 +2,17 @@
     "races":[
         {
             "name":"Dwarf",
+            "hair":{
+                "colors":[
+                    "black","brown"
+                ],
+                "styles":[
+                    "long","wirey","full and heavy","lucious"
+                ],
+                "notes":[
+                    "carefully braided","coal dust coated","coal stained","well kept","beaded","tied up"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":45,
@@ -34,6 +45,17 @@
         },
         {
             "name":"Halfling",
+            "hair":{
+                "colors":[
+                    "auburn","black","brown","gray","white"
+                ],
+                "styles":[
+                    "short","spiked","shoulder length","bobbed"
+                ],
+                "notes":[
+                    "greasy looking","messy","dry looking","dirt caked"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":32,
@@ -66,6 +88,17 @@
         },
         {
             "name":"Elf",
+            "hair":{
+                "colors":[
+                    "dark brown","ginger","green, moss like,","golden","blonde"
+                ],
+                "styles":[
+                    "long","thick and full","thin","lucious","shoulder length"
+                ],
+                "notes":[
+                    "flowing","perfect","beautiful","silky","smooth","soft looking","wispy"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":64,
@@ -98,6 +131,17 @@
         },
         {
             "name":"Human",
+            "hair":{
+                "colors":[
+                    "red","blonde","brown","black","auburn","ginger"
+                ],
+                "styles":[
+                    "long","short","spiked","bobbed","shoulder length","mid length"
+                ],
+                "notes":[
+                    "dry","unwashed","clean","messy","well kept","neat looking","thick","thin"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":58,
@@ -130,6 +174,17 @@
         },
         {
             "name":"Gnome",
+            "hair":{
+                "colors":[
+                    "red","blonde","brown","black","auburn","green","blue","pinkish","pink","ginger"
+                ],
+                "styles":[
+                    "short","spiked","shoulder length","bobbed"
+                ],
+                "notes":[
+                    "greasy","messy","dry looking","dirt caked"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":36,
@@ -162,6 +217,17 @@
         },
         {
             "name":"Half-Orc",
+            "hair":{
+                "colors":[
+                    "black","brown"
+                ],
+                "styles":[
+                    "long","lengthy","full and heavy","shaggy","patchy"
+                ],
+                "notes":[
+                    "beaded","filthy","blood caked","mud stained"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":58,
@@ -194,6 +260,17 @@
         },
         {
             "name":"Half-Elf",
+            "hair":{
+                "colors":[
+                    "dark brown","ginger","mossy green","deep gold","blonde"
+                ],
+                "styles":[
+                    "long","thick and full","thin"
+                ],
+                "notes":[
+                    "flowing","almost perfect","silky","smooth","soft looking","wispy","dry looking"
+                ]
+            },
             "stature":{
                 "baseHeightInches":{
                     "male":62,
