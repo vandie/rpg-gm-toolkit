@@ -1,6 +1,6 @@
-# RPG Lore Builder
+# RPG GM Toolkit
 
-> A Vue.js Lore Builder for tabletop RPG games.
+> A Vue.js GM Toolkit for tabletop RPG games.
 
 ## Goals
 
