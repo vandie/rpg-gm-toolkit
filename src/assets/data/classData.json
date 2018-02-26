@@ -1,37 +1,48 @@
 {
     "classes":[
         {
-            "name":"Barbarian"
+            "name":"Barbarian",
+            "alignments":["NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Bard"
+            "name":"Bard",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Cleric"
+            "name":"Cleric",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Druid"
+            "name":"Druid",
+            "alignments":["LN","NG","N","NE","CN"]
         },
         {
-            "name":"Fighter"
+            "name":"Fighter",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Monk"
+            "name":"Monk",
+            "alignments":["LE","LN","LG"]
         },
         {
-            "name":"Paladin"
+            "name":"Paladin",
+            "alignments":["LG"]
         },
         {
-            "name":"Ranger"
+            "name":"Ranger",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Rogue"
+            "name":"Rogue",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Sorcerer"
+            "name":"Sorcerer",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         },
         {
-            "name":"Wizard"
+            "name":"Wizard",
+            "alignments":["LE","LN","LG","NG","N","NE","CG","CN","CE"]
         }
     ]
 }

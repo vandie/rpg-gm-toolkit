@@ -22,6 +22,12 @@
                         </b-select>
                         <b-input type="Number" placeholder="Level" max="20" v-model="level" expanded></b-input>
                     </b-field>
+                    <b-field>
+                        <b-select v-if="selClass != classes.length" placeholder="No Alignment selected" v-model="selAlignment" expanded>
+                            <option v-for="(alignment, index) in currentClass.alignments" v-bind:key="index" v-bind:value="index">{{alignment}}</option>
+                            <option v-bind:value="races.length">Random alignment</option>
+                        </b-select>
+                    </b-field>
                     <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">Regenerate</a>
                 </div>
             </div>
@@ -39,6 +45,7 @@
                     <h4> Sex : {{capitalizeFirstLetter(fSex)}} </h4>
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
+                    <h4> Alignment : {{displayAlignment}} </h4>
                     <br>
                     <h4> Hair : {{hair}} </h4>
                 </div>
@@ -58,16 +65,17 @@ export default {
       return {
           races: raceData.races,
           classes: classData.classes,
-          selRace: 0,
+          selRace: raceData.races.length,
           selClass: classData.classes.length,
-          sex: "male",
+          sex: "random",
           level: null
       }
   },
   methods: {
     regenerate: function(){
+        let a = this.selAlignment
         let s = this.sex
-        this.sex = this.sex == "male" ? "female" : "male"
+        this.sex = this.sex
         this.sex = s
         let c = this.selClass
         this.selClass = this.selClass == 0 ? 1 : 0
@@ -78,6 +86,7 @@ export default {
         let r = this.selRace
         this.selRace = this.selRace == 0 ? 1 : 0
         this.selRace = r
+        this.selAlignment = a
     },
     toNameCase: function(str){
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -99,6 +108,44 @@ export default {
             return this.classes[this.selClass]
         }else{
             return this.classes[ Math.floor(Math.random()*this.classes.length) ]
+        }
+    },
+    currentAlignment: function(){
+        if(this.selClass == this.classes.length || this.selAlignment == this.currentClass.alignments.length){
+            return this.currentClass.alignments[ Math.floor(Math.random()*this.currentClass.alignments.length) ]
+        }else{
+            return this.currentClass.alignments[this.selAlignment]
+        }
+    },
+    displayAlignment: function(){
+        switch(this.currentAlignment){
+            case("CN"):
+                return "Chaotic Neutral"
+                break;
+            case("CG"):
+                return "Chaotic Good"
+                break;
+            case("CE"):
+                return "Chaotic Evil"
+                break;
+            case("N"):
+                return "True Neutral"
+                break;
+            case("NG"):
+                return "Neutral Good"
+                break;
+            case("NE"):
+                return "Neutral Evil"
+                break;
+            case("LN"):
+                return "Lawful Neutral"
+                break;
+            case("LG"):
+                return "Lawful Good"
+                break;
+            case("LE"):
+                return "Lawful Evil"
+                break;
         }
     },
     fSex: function(){
