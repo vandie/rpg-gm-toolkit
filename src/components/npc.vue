@@ -25,7 +25,7 @@
                     <b-field>
                         <b-select v-if="selClass != classes.length" placeholder="No Alignment selected" v-model="selAlignment" expanded>
                             <option v-for="(alignment, index) in currentClass.alignments" v-bind:key="index" v-bind:value="index">{{alignment}}</option>
-                            <option v-bind:value="races.length">Random alignment</option>
+                            <option v-bind:value="currentClass.alignments.length">Random alignment</option>
                         </b-select>
                     </b-field>
                     <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">Regenerate</a>
@@ -68,7 +68,8 @@ export default {
           selRace: raceData.races.length,
           selClass: classData.classes.length,
           sex: "random",
-          level: null
+          level: null,
+          selAlignment: 0
       }
   },
   methods: {
@@ -111,10 +112,11 @@ export default {
         }
     },
     currentAlignment: function(){
-        if(this.selClass == this.classes.length || this.selAlignment == this.currentClass.alignments.length || this.selAlignment == null){
-            return this.currentClass.alignments[ Math.floor(Math.random()*this.currentClass.alignments.length) ]
+        let ca = this.currentClass.alignments
+        if(this.selAlignment == ca.length || this.class == this.classes.length){
+            return ca[ Math.floor(Math.random()*ca.length) ]
         }else{
-            return this.currentClass.alignments[this.selAlignment]
+            return ca[this.selAlignment]
         }
     },
     displayAlignment: function(){
