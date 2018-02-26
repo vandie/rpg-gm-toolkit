@@ -7,13 +7,13 @@
                     "black","brown"
                 ],
                 "styles":[
-                    "long","wirey","full and heavy","luciously curling"
+                    "lengthy","wirey","full and heavy","luciously curling"
                 ],
                 "notes":[
                     "carefully braided","coal dust coated","coal stained","well kept","beaded","tied up"
                 ]
             },
-            "eyeColors":[],
+            "eyeColors":["brown","grey"],
             "stature":{
                 "baseHeightInches":{
                     "male":45,
@@ -57,6 +57,7 @@
                     "greasy looking","messy","dry looking","dirt caked"
                 ]
             },
+            "eyeColors":["green","blue"],
             "stature":{
                 "baseHeightInches":{
                     "male":32,
@@ -94,12 +95,13 @@
                     "dark brown","ginger","green, moss like,","golden","blonde"
                 ],
                 "styles":[
-                    "long","thick and full","thin","lucious","shoulder length"
+                    "lengthy","thick and full","thin","lucious","shoulder length"
                 ],
                 "notes":[
                     "flowing","perfect","beautiful","silky","smooth","soft looking","wispy"
                 ]
             },
+            "eyeColors":["dark blue","black","blue"],
             "stature":{
                 "baseHeightInches":{
                     "male":64,
@@ -137,12 +139,13 @@
                     "red","blonde","brown","black","auburn","ginger"
                 ],
                 "styles":[
-                    "long","short","spiked","bobbed","shoulder length","mid length"
+                    "lengthy","short","spiked","bobbed","shoulder length","mid length"
                 ],
                 "notes":[
                     "dry","unwashed","clean","messy","well kept","neat looking","thick","thin"
                 ]
             },
+            "eyeColors":["green","blue","purple","grey","brown","sea green"],
             "stature":{
                 "baseHeightInches":{
                     "male":58,
@@ -186,6 +189,7 @@
                     "greasy","messy","dry looking","dirt caked"
                 ]
             },
+            "eyeColors":["green","blue","yellow","red","silver","grey","purple","orange","brown"],
             "stature":{
                 "baseHeightInches":{
                     "male":36,
@@ -223,12 +227,13 @@
                     "black","brown"
                 ],
                 "styles":[
-                    "long","lengthy","full and heavy","shaggy","patchy"
+                    "lengthy","lengthy","full and heavy","shaggy","patchy"
                 ],
                 "notes":[
                     "beaded","filthy","blood caked","mud stained"
                 ]
             },
+            "eyeColors":["black","red","brown","grey"],
             "stature":{
                 "baseHeightInches":{
                     "male":58,
@@ -263,15 +268,16 @@
             "name":"Half-Elf",
             "hair":{
                 "colors":[
-                    "dark brown","ginger","mossy green","deep gold","blonde"
+                    "dark brown","ginger","mossy green","golden","blonde"
                 ],
                 "styles":[
-                    "long","thick and full","thin"
+                    "lengthy","thick and full","thin"
                 ],
                 "notes":[
                     "flowing","almost perfect","silky","smooth","soft looking","wispy","dry looking"
                 ]
             },
+            "eyeColors":["green","blue","purple","grey","brown","sea green","dark blue","black"],
             "stature":{
                 "baseHeightInches":{
                     "male":62,

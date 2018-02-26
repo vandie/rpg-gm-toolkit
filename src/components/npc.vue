@@ -48,6 +48,8 @@
                     <h4> Alignment : {{displayAlignment}} </h4>
                     <br>
                     <h4> Hair : {{hair}} </h4>
+                    <h4> Eye Color : {{eye}} </h4>
+                    <h4> Clothing: Not Yet Implemented</h4>
                 </div>
             </div>
           </div>
@@ -188,7 +190,15 @@ export default {
         let color = data.colors[ Math.floor(Math.random()*data.colors.length) ]
         let style = data.styles[ Math.floor(Math.random()*data.styles.length) ]
         let note = data.notes[ Math.floor(Math.random()*data.notes.length) ]
-        return this.capitalizeFirstLetter(this.pronoun)+" "+note+" "+color+" hair is "+style+"."
+        return this.capitalizeFirstLetter(this.pronoun+" "+note+" "+color+" hair appears "+style+".")
+    },
+    eye: function(){
+        let r = this.currentRace
+        let color = r.eyeColors[Math.floor(Math.random() * r.eyeColors.length)]
+        let notes = ["glimmer in the sun","appear almost glazed over","look a little dull in the low light","shine with intent","dance around untrustingly","remain focused on their work","appear to stare right through you"]
+        let note = notes[Math.floor(Math.random() * notes.length)].replace("their",this.pronoun)
+        
+        return this.capitalizeFirstLetter(this.pronoun+" "+color+" eyes "+note+".")
     }
   }
 }
