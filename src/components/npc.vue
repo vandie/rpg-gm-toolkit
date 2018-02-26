@@ -36,7 +36,7 @@
                 <div class="card-content">
                     <h4> Race : {{currentRace.name}} </h4>
                     <h4> Class : {{currentClass.name}} ( {{curLevel}} )</h4>
-                    <h4> Sex : {{toNameCase(fSex)}} </h4>
+                    <h4> Sex : {{capitalizeFirstLetter(fSex)}} </h4>
                     <h4> Height : {{stature.writtenHeight}} </h4>
                     <h4> Weight : {{stature.writtenWeight}} </h4>
                     <br>
@@ -81,6 +81,9 @@ export default {
     },
     toNameCase: function(str){
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    },
+    capitalizeFirstLetter: function (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
   },
   computed:{
@@ -136,7 +139,7 @@ export default {
         let color = data.colors[ Math.floor(Math.random()*data.colors.length) ]
         let style = data.styles[ Math.floor(Math.random()*data.styles.length) ]
         let note = data.notes[ Math.floor(Math.random()*data.notes.length) ]
-        return this.toNameCase(this.pronoun)+" "+note+" "+color+" hair is "+style+"."
+        return this.capitalizeFirstLetter(this.pronoun)+" "+note+" "+color+" hair is "+style+"."
     }
   }
 }

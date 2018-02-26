@@ -25,10 +25,13 @@
             "name":"Ranger"
         },
         {
+            "name":"Rogue"
+        },
+        {
             "name":"Sorcerer"
         },
         {
-            "name":"Wizzard"
+            "name":"Wizard"
         }
     ]
 }
