@@ -79,6 +79,7 @@ export default {
         let a = this.selAlignment
         let s = this.sex
         this.sex = this.sex
+        this.sex = this.sex == "male" ? "female" : "male"
         this.sex = s
         let c = this.selClass
         this.selClass = this.selClass == 0 ? 1 : 0
