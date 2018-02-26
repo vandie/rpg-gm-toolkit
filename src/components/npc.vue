@@ -111,7 +111,7 @@ export default {
         }
     },
     currentAlignment: function(){
-        if(this.selClass == this.classes.length || this.selAlignment == this.currentClass.alignments.length){
+        if(this.selClass == this.classes.length || this.selAlignment == this.currentClass.alignments.length || this.selAlignment == null){
             return this.currentClass.alignments[ Math.floor(Math.random()*this.currentClass.alignments.length) ]
         }else{
             return this.currentClass.alignments[this.selAlignment]
