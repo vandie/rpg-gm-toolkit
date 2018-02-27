@@ -7,9 +7,11 @@ import fontawesome from '@fortawesome/fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
 import icons from '@fortawesome/fontawesome-free-solid'
 import Buefy from 'buefy'
+import { VueGithubCorners } from 'vue2-github-corners'
 
 Vue.config.productionTip = false
 Vue.use(Buefy)
+Vue.component('VueGithubCorners', VueGithubCorners)
 
 /* eslint-disable no-new */
 new Vue({

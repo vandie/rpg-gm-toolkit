@@ -1,20 +1,27 @@
 <template>
-  <div>
+  <div id="app">
     <!-- Begin header bar content -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item" id="PageTitle"> The Modern GM Toolkit </router-link>
+        <div class="navbar-burger" @click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
       </div>
       <div class="navbar-menu">
         <div class="navbar-end">
           <router-link v-for="route in this.$router.options.routes" v-bind:key="route.path" v-bind:to="route.path"  v-bind:class="{'navbar-item':true, 'is-active': route.name == pageName}">{{ route.name }}</router-link>
-          
         </div>
       </div>
     </nav>
     <!-- End header bar content -->
     <!-- Begin Page Header -->
     <section class="hero is-primary is-bold" v-bind:class="{ 'is-medium': 'Home' == pageName, 'is-info':'Home' != pageName}">
+      <!-- Begin github cat -->
+        <VueGithubCorners v-bind:repoUrl="repoUrl" v-bind:catColor="catColor" v-bind:bgColor="bgColor"></VueGithubCorners>
+      <!-- End github cat -->
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -39,11 +46,19 @@ export default {
   name: 'App',
   data : function(){
     return{
+      repoUrl: "https://github.com/vandie/rpg-gm-toolkit",
+      bgColor:"#353b48",
+      catColor:"#f5f6fa"
     }
   },
   computed: {
     pageName: function() { return this.$route.name },
     pageDesc: function() { return pathDesc[this.$route.name] }
+  },
+  methods: {
+    toggleMenu: function() {
+      document.querySelector(".navbar-menu").classList.toggle('is-active')
+    }
   }
 }
 </script>
@@ -97,9 +112,14 @@ $link-focus-border: $primary;
 @import url('https://fonts.googleapis.com/css?family=Merienda');
 
 //Other scss
-.navbar-item{
-  &#PageTitle{
-    font-weight: bold;
+.github-corners{
+  position: relative;
+}
+.navbar{
+  &-item{
+    &#PageTitle{
+      font-weight: bold;
+    }
   }
 }
 </style>
