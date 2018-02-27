@@ -37,7 +37,7 @@
     },
     {
         "name":"Hand Crafted Armour",
-        "description":"you wouldn't be supprised if they had made this armour themself, it looks badly hand crafted.",
+        "description":"you wouldn't be surprised if they had made this armour themself, it looks badly hand crafted.",
         "classSpecific": true,
         "classes":["Fighter","Paladin","Barbarian"]
     },
@@ -49,7 +49,7 @@
     },
     {
         "name":"Merry tunic",
-        "description":"they wears a tunic made of what appears to be a single large peice of green fabric worn above a set of makeshift tights.",
+        "description":"they wears a tunic made of what appears to be a single large piece of green fabric worn above a set of makeshift tights.",
         "classSpecific": false
     },
     {
@@ -69,7 +69,7 @@
     },
     {
         "name":"nobel's clothes",
-        "description":"their purple ruffled shirt contains the beautifuly embroided crest of one of the nobel houses adorned with golden trims.",
+        "description":"their purple ruffled shirt contains the beautifully embroided crest of one of the nobel houses adorned with golden trims.",
         "classSpecific": false
     }   
 ]
