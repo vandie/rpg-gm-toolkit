@@ -28,6 +28,10 @@
                             <option v-bind:value="currentClass.alignments.length">Random alignment</option>
                         </b-select>
                     </b-field>
+                    <b-field>
+                        <b-input type="text" placeholder="Custom Hair Color" v-model="cHair" expanded></b-input>
+                        <b-input type="text" placeholder="Custom Eye Color" v-model="cEye" expanded></b-input>
+                    </b-field>
                     <a id="regen" class="button is-primary is-outlined" v-on:click="regenerate()">Regenerate</a>
                 </div>
             </div>
@@ -71,7 +75,9 @@ export default {
           selClass: classData.classes.length,
           sex: "random",
           level: null,
-          selAlignment: 0
+          selAlignment: 0,
+          cHair: "",
+          cEye: ""
       }
   },
   methods: {
@@ -188,14 +194,14 @@ export default {
     },
     hair: function(){
         let data = this.currentRace.hair
-        let color = data.colors[ Math.floor(Math.random()*data.colors.length) ]
+        let color = this.cHair == "" ? data.colors[ Math.floor(Math.random()*data.colors.length) ] : this.cHair.toLowerCase()
         let style = data.styles[ Math.floor(Math.random()*data.styles.length) ]
         let note = data.notes[ Math.floor(Math.random()*data.notes.length) ]
         return this.capitalizeFirstLetter(this.pronoun+" "+note+" "+color+" hair appears "+style+".")
     },
     eye: function(){
         let r = this.currentRace
-        let color = r.eyeColors[Math.floor(Math.random() * r.eyeColors.length)]
+        let color = this.cEye == "" ? r.eyeColors[Math.floor(Math.random() * r.eyeColors.length)] : this.cEye.toLowerCase()
         let notes = ["glimmer in the sun","appear almost glazed over","look a little dull in the low light","shine with intent","dance around untrustingly","remain focused on their work","appear to stare right through you"]
         let note = notes[Math.floor(Math.random() * notes.length)].replace("their",this.pronoun)
         
