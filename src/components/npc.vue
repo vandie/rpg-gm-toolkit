@@ -139,6 +139,9 @@ export default {
     },
     currentAlignment: function(){
         let ca = this.currentClass.alignments
+
+        this.selAlignment > ca.length ? this.selAlignment = ca.length : ca = ca
+        
         if(this.selAlignment == ca.length || this.class == this.classes.length){
             return ca[ Math.floor(Math.random()*ca.length) ]
         }else{
