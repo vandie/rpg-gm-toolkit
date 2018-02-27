@@ -1,7 +1,7 @@
 <template>
   <div class="columns">
       <div class="column">
-          <div class="section">
+          <div class="section options">
             <div class="card">
                 <div class="card-content">
                     <b-field>
@@ -44,16 +44,20 @@
                     <p class="card-header-title">Name : {{name}}</p>
                 </header>
                 <div class="card-content">
-                    <h4> Race : {{currentRace.name}} </h4>
-                    <h4> Class : {{currentClass.name}} ( {{curLevel}} )</h4>
-                    <h4> Sex : {{capitalizeFirstLetter(fSex)}} </h4>
-                    <h4> Height : {{stature.writtenHeight}} </h4>
-                    <h4> Weight : {{stature.writtenWeight}} </h4>
-                    <h4> Alignment : {{displayAlignment}} </h4>
+                    <h4> <b> Race </b> : {{currentRace.name}} </h4>
+                    <h4> <b> Class </b> : {{currentClass.name}} ( {{curLevel}} )</h4>
+                    <h4> <b> Sex </b> : {{capitalizeFirstLetter(fSex)}} </h4>
+                    <h4> <b> Height </b> : {{stature.writtenHeight}} </h4>
+                    <h4> <b> Weight </b> : {{stature.writtenWeight}} </h4>
+                    <h4> <b> Alignment </b> : {{displayAlignment}} </h4>
+                    <br>
+                    <h4> <b> Description </b> : {{ completeDescription }} </h4>
+                    <!-- Separate descriptions.
                     <br>
                     <h4> Hair : {{hair}} </h4>
                     <h4> Eye Color : {{eye}} </h4>
-                    <h4> Clothing: Not Yet Implemented</h4>
+                    <h4> Clothing: {{wornClothes.description}}</h4>
+                    -->
                 </div>
             </div>
           </div>
@@ -65,6 +69,7 @@
 import raceData from "../assets/data/raceData.json"
 import classData from "../assets/data/classData.json"
 import eyeNotes from "../assets/data/eyeNotes.json"
+import clothes from "../assets/data/clothing.json"
 
 export default {
   name:"NPC",
@@ -73,6 +78,7 @@ export default {
           races: raceData.races,
           classes: classData.classes,
           eyeNotes: eyeNotes,
+          clothes: clothes,
           selRace: raceData.races.length,
           selClass: classData.classes.length,
           sex: "random",
@@ -105,6 +111,11 @@ export default {
     },
     capitalizeFirstLetter: function (string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    },
+    pronoun: function(t){
+        if (t == "their") return this.fSex == "male" ? "his": "her"
+        else if (t == "they") return this.fSex == "male" ? "he": "she"
+        else if (t == "them") return this.fSex == "male" ? "him": "her"
     }
   },
   computed:{
@@ -191,23 +202,40 @@ export default {
         if(this.level != null && this.level != "") return this.level
         else return Math.floor(Math.random()*5)+2
     },
-    pronoun: function(){
-        return this.fSex == "male" ? "his": "her"
-    },
     hair: function(){
         let data = this.currentRace.hair
         let color = this.cHair == "" ? data.colors[ Math.floor(Math.random()*data.colors.length) ] : this.cHair.toLowerCase()
         let style = data.styles[ Math.floor(Math.random()*data.styles.length) ]
         let note = data.notes[ Math.floor(Math.random()*data.notes.length) ]
-        return this.capitalizeFirstLetter(this.pronoun+" "+note+" "+color+" hair appears "+style+".")
+        return this.capitalizeFirstLetter(this.pronoun("their")+" "+note+" "+color+" hair appears "+style+".")
     },
     eye: function(){
         let notes = this.eyeNotes
         let r = this.currentRace
         let color = this.cEye == "" ? r.eyeColors[Math.floor(Math.random() * r.eyeColors.length)] : this.cEye.toLowerCase()
-        let note = notes[Math.floor(Math.random() * notes.length)].replace("their",this.pronoun)
+        let note = notes[Math.floor(Math.random() * notes.length)].replace("their",this.pronoun("their"))
         
-        return this.capitalizeFirstLetter(this.pronoun+" "+color+" eyes "+note+".")
+        return this.capitalizeFirstLetter(this.pronoun("their")+" "+color+" eyes "+note+".")
+    },
+    availableClothing: function(){
+        let className = this.currentClass.name
+        return this.clothes.filter( cloth => {
+            if (cloth.classSpecific == false) return true
+            else return cloth.classes.includes(className)
+        } )
+    },
+    wornClothes: function(){
+        let c = this.availableClothing[Math.floor( Math.random() * this.availableClothing.length )]
+        c.description = c.description.replace(new RegExp("their", 'g'),this.pronoun("their"))
+        c.description = c.description.replace(new RegExp("them", 'g'),this.pronoun("them"))
+        c.description = c.description.replace(new RegExp("they", 'g'),this.pronoun("they"))
+        c.description = this.capitalizeFirstLetter(c.description)
+        return c
+    },
+    completeDescription: function(){
+        let joiningWords = ["while","and","but","yet"]
+        let word = joiningWords[Math.floor( Math.random() * joiningWords.length )]
+        return this.wornClothes.description +" "+this.hair.replace('.',' ' +word+ ' ')+this.eye.toLowerCase()
     }
   }
 }
@@ -216,6 +244,9 @@ export default {
 <style lang="scss">
     #regen{
         width:100%;;
+    }
+    .options{
+        padding-bottom: 1px;
     }
 </style>
 

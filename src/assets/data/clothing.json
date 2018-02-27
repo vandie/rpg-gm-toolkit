@@ -1,0 +1,75 @@
+[
+    {
+        "name":"Cloak",
+        "description":"their lower face remains hidden behind a dark cloak that could easily hide any number of weapons.",
+        "classSpecific": true,
+        "classes":["Rogue"]
+    },
+    {
+        "name":"Ornate Robe",
+        "description":"their body is sporting a long robe of ornate origins held together with a long golden thread.",
+        "classSpecific": true,
+        "classes":["Wizard","Sorcerer"]
+    },
+    {
+        "name":"Tattered robe",
+        "description":"their robe has clearly seen better days although they continues to sport it proudly.",
+        "classSpecific": true,
+        "classes":["Wizard","Sorcerer","Monk","Druid"]
+    },
+    {
+        "name":"Robe",
+        "description":"they dresses in a simple brown robe. Similar in material to that of a potato sack.",
+        "classSpecific": true,
+        "classes":["Wizard","Sorcerer","Monk","Druid"]
+    },
+    {
+        "name":"Ornate Armour",
+        "description":"the armour across their body appears expensive. You seem unsure as to how much the ornate trims of gold and silver must have cost.",
+        "classSpecific": true,
+        "classes":["Fighter","Paladin"]
+    },
+    {
+        "name":"Simple Armour",
+        "description":"the armour they sports is of simple origin, potentially made by the local blacksmith.",
+        "classSpecific": true,
+        "classes":["Fighter","Paladin","Barbarian"]
+    },
+    {
+        "name":"Hand Crafted Armour",
+        "description":"you wouldn't be supprised if they had made this armour themself, it looks badly hand crafted.",
+        "classSpecific": true,
+        "classes":["Fighter","Paladin","Barbarian"]
+    },
+    {
+        "name":"Brawlers wear",
+        "description":"they appears to have been in many brawls as their tattered shirt has been caked in layers of different colored blood and has seemingly never before seen soap.",
+        "classSpecific": true,
+        "classes":["Fighter"]
+    },
+    {
+        "name":"Merry tunic",
+        "description":"they wears a tunic made of what appears to be a single large peice of green fabric worn above a set of makeshift tights.",
+        "classSpecific": false
+    },
+    {
+        "name":"plain shirt",
+        "description":"they wears a rather uninspired plain red shirt.",
+        "classSpecific": false
+    },
+    {
+        "name":"leather coat",
+        "description":"above what looks like a plain shirt, they wears a long tanned leather coat.",
+        "classSpecific": false
+    },
+    {
+        "name":"peasent's clothes",
+        "description":"their clothes appear tattered and ruined but you get the feeling that they would be unable to get new ones if they wanted to...",
+        "classSpecific": false
+    },
+    {
+        "name":"nobel's clothes",
+        "description":"their purple ruffled shirt contains the beautifuly embroided crest of one of the nobel houses adorned with golden trims.",
+        "classSpecific": false
+    }   
+]
