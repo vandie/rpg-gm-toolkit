@@ -46,7 +46,7 @@
                 <div class="card-content">
                     <h4> <b> Race </b> : {{currentRace.name}} </h4>
                     <h4> <b> Class </b> : {{currentClass.name}} ( {{curLevel}} )</h4>
-                    <h4> <b> Sex </b> : {{capitalizeFirstLetter(fSex)}} </h4>
+                    <h4> <b> Sex </b> : {{sentanceCapitalise(fSex)}} </h4>
                     <h4> <b> Height </b> : {{stature.writtenHeight}} </h4>
                     <h4> <b> Weight </b> : {{stature.writtenWeight}} </h4>
                     <h4> <b> Alignment </b> : {{displayAlignment}} </h4>
@@ -109,8 +109,12 @@ export default {
     toNameCase: function(str){
         return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
     },
-    capitalizeFirstLetter: function (string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+    sentanceCapitalise: function (string) {
+        let s = string.split('. ')
+        for(let i in s){
+            s[i] = s[i].charAt(0).toUpperCase() + s[i].slice(1)
+        }
+        return s.join(". ")
     },
     pronoun: function(t){
         if (t == "their") return this.fSex == "male" ? "his": "her"
@@ -207,7 +211,7 @@ export default {
         let color = this.cHair == "" ? data.colors[ Math.floor(Math.random()*data.colors.length) ] : this.cHair.toLowerCase()
         let style = data.styles[ Math.floor(Math.random()*data.styles.length) ]
         let note = data.notes[ Math.floor(Math.random()*data.notes.length) ]
-        return this.capitalizeFirstLetter(this.pronoun("their")+" "+note+" "+color+" hair appears "+style+".")
+        return "their "+note+" "+color+" hair appears "+style+"."
     },
     eye: function(){
         let notes = this.eyeNotes
@@ -215,7 +219,7 @@ export default {
         let color = this.cEye == "" ? r.eyeColors[Math.floor(Math.random() * r.eyeColors.length)] : this.cEye.toLowerCase()
         let note = notes[Math.floor(Math.random() * notes.length)].replace("their",this.pronoun("their"))
         
-        return this.capitalizeFirstLetter(this.pronoun("their")+" "+color+" eyes "+note+".")
+        return "their "+color+" eyes "+note+"."
     },
     availableClothing: function(){
         let className = this.currentClass.name
@@ -226,16 +230,16 @@ export default {
     },
     wornClothes: function(){
         let c = this.availableClothing[Math.floor( Math.random() * this.availableClothing.length )]
-        c.description = c.description.replace(new RegExp("their", 'g'),this.pronoun("their"))
-        c.description = c.description.replace(new RegExp("them", 'g'),this.pronoun("them"))
-        c.description = c.description.replace(new RegExp("they", 'g'),this.pronoun("they"))
-        c.description = this.capitalizeFirstLetter(c.description)
         return c
     },
     completeDescription: function(){
         let joiningWords = ["while","and","but","yet"]
         let word = joiningWords[Math.floor( Math.random() * joiningWords.length )]
-        return this.wornClothes.description +" "+this.hair.replace('.',' ' +word+ ' ')+this.eye.toLowerCase()
+        let desc = this.wornClothes.description +" "+this.hair.replace('.',' ' +word+ ' ')+this.eye.toLowerCase()
+        desc = desc.replace(new RegExp("their", 'g'),this.pronoun("their"))
+        desc = desc.replace(new RegExp("them", 'g'),this.pronoun("them"))
+        desc = desc.replace(new RegExp("they", 'g'),this.pronoun("they"))
+        return this.sentanceCapitalise(desc)
     }
   }
 }
