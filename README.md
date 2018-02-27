@@ -4,19 +4,17 @@
 
 ## Goals
 
-The Goal here is to create a tool for creating the Lore for your tabletop RPG Campaign. A useful tool for GMs, the aim is to have a system wherein many parts of creating the background information for your RPG is possible with little difficulty.
+The Goal here is to create a set of tools that you can use as a GM for your tabletop RPG Campaign. The aim is to have a system wherein many parts of creating the background information for your RPG is possible with little difficulty.
 
 ### Components we want to make (Feel free to add to this)
 
-#### [ ] NPC Generator
-- [x] Race
-- [x] Sex
-- [x] Random Height & Weight
-- [x] Random Name
-- [ ] Base Stats
-- [x] Class
+#### [NPC Generator](https://github.com/vandie/rpg-gm-toolkit/projects/1)
 
-## Vue.js Build Setup
+## Contributing
+
+Anyone who wants to is free to contribute. Although any pull requests that have been prebuilt will not be accepted (use dev mode listed below instead).
+
+### Vue.js Build Setup
 
 ``` bash
 # install dependencies

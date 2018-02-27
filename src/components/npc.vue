@@ -198,7 +198,7 @@ export default {
     },
     name: function(){
         if (this.currentRace.firstNames){
-            let n = this.currentRace.firstNames[this.fSex][Math.floor(Math.random()*this.currentRace.firstNames[this.fSex].length-1)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length-1)]
+            let n = this.currentRace.firstNames[this.fSex][Math.floor(Math.random()*this.currentRace.firstNames[this.fSex].length)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length)]
             return this.toNameCase(n)
         } else return "N/A"
     },
