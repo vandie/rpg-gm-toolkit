@@ -36,6 +36,7 @@
     <!-- End Page Header -->
     <!-- VueJS page Router -->
     <router-view></router-view>
+    <notifications group="notif" position="bottom left" />
   </div>
 </template>
 
