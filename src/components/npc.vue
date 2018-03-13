@@ -74,6 +74,7 @@ import clothes from "../assets/data/clothing.json"
 export default {
   name:"NPC",
   data: function(){
+      this.load()
       return {
           races: raceData.races,
           classes: classData.classes,
@@ -89,6 +90,16 @@ export default {
       }
   },
   methods: {
+    load: function(){
+        this.$notify({
+            group: 'notif',
+            title: 'Use this tool with Google Assistant!',
+            text: 'Simply say "Ok Google, Ask Dungeon Master\'s Toolkit to Generate a Halfling Druid"',
+            width: '530px',
+            duration:9000,
+            type: 'success'
+        });
+    },
     regenerate: function(){
         let a = this.selAlignment
         let s = this.sex
@@ -141,7 +152,7 @@ export default {
         let ca = this.currentClass.alignments
 
         this.selAlignment > ca.length ? this.selAlignment = ca.length : ca = ca
-        
+
         if(this.selAlignment == ca.length || this.class == this.classes.length){
             return ca[ Math.floor(Math.random()*ca.length) ]
         }else{
@@ -201,8 +212,10 @@ export default {
     },
     name: function(){
         if (this.currentRace.firstNames){
-            let n = this.currentRace.firstNames[this.fSex][Math.floor(Math.random()*this.currentRace.firstNames[this.fSex].length)] +" "+ this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length)]
-            return this.toNameCase(n)
+            let fn = this.currentRace.firstNames[this.fSex][Math.floor(Math.random()*this.currentRace.firstNames[this.fSex].length)]
+            let ln = this.currentRace.surnames[Math.floor(Math.random()*this.currentRace.surnames.length)]
+
+            return this.toNameCase(fn+" "+ln)
         } else return "N/A"
     },
     curLevel: function(){
